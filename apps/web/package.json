@@ -11,10 +11,21 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/ui": "*",
+    "@duckconnect/ui": "*",
+    "@duckconnect/types": "*",
+    "@duckconnect/utils": "*",
     "next": "^15.5.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "next-auth": "^4.24.5",
+    "zustand": "^4.4.7",
+    "framer-motion": "^11.0.0",
+    "recharts": "^2.8.0",
+    "axios": "^1.6.0",
+    "swr": "^2.2.4",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",

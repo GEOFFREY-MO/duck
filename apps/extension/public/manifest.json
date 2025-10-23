@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "DuckConnect",
+  "version": "1.0.0",
+  "description": "Stay online even when offline - Turn on the Duck to keep watching, working, and syncing data seamlessly.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "background",
+    "scripting",
+    "webRequest",
+    "webRequestBlocking",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DuckConnect",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

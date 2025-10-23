@@ -1,135 +1,222 @@
-# Turborepo starter
+# 🦆 DuckConnect MVP
 
-This Turborepo starter is maintained by the Turborepo core team.
+> Stay Online, Even When Offline
 
-## Using this example
+DuckConnect is a cross-platform browser extension + web app that lets users stay online even when offline. "Turn on the Duck" to keep watching, working, and syncing data seamlessly across all your devices.
 
-Run the following command:
+## 🎯 Mission
 
-```sh
-npx create-turbo@latest
+DuckConnect adapts like a duck:
+- **Walks** (offline) - Smart caching and local storage
+- **Swims** (data-light) - Efficient sync and compression  
+- **Flies** (full online) - Seamless cloud integration
+
+## 🏗️ Architecture
+
+This is a Turborepo monorepo containing:
+
+### Apps
+- **`apps/web`** - Next.js 15 web application (landing, dashboard, settings)
+- **`apps/extension`** - Browser extension (Manifest v3, Next.js export)
+- **`apps/api`** - NestJS backend API
+
+### Packages
+- **`packages/ui`** - Shared UI components with Tailwind + ShadCN
+- **`packages/types`** - TypeScript interfaces and types
+- **`packages/utils`** - Shared utility functions
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- Docker & Docker Compose
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/GEOFFREY-MO/duck.git
+   cd duck
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development services**
+   ```bash
+   # Start all services
+   npm run dev
+   
+   # Or start individual services
+   npm run dev --filter=web
+   npm run dev --filter=api
+   ```
+
+4. **Start Docker services**
+   ```bash
+   docker-compose up -d
+   ```
+
+### Development URLs
+- **Web App**: http://localhost:3000
+- **API**: http://localhost:3001
+- **MinIO Console**: http://localhost:9001
+- **PostgreSQL**: localhost:5432
+- **Redis**: localhost:6379
+
+## 🎨 Design System
+
+### Brand Colors
+| Role | Hex | Usage |
+|------|-----|-------|
+| Primary Gradient Start | `#47E2C1` | Main brand color |
+| Primary Gradient End | `#4CB4F9` | Gradient accent |
+| Background Light | `#E6F7F6` | Light theme background |
+| Background Dark | `#0B0C10` | Dark theme background |
+| Accent Yellow | `#FFD44F` | Highlights and CTAs |
+| Text Primary | `#0A0A0A` | Main text color |
+| Text Secondary | `#8E9CA9` | Secondary text |
+| Button Hover | `#3AD0C5` | Interactive states |
+| Border | `#D8E8EC` | UI borders |
+
+### Typography
+- **Headings**: Poppins Bold
+- **Body**: Inter Regular  
+- **Code/Stats**: Roboto Mono
+
+## 🧩 Features
+
+### Web App (`apps/web`)
+- **Landing Page** - Hero, features, pricing, CTA
+- **Authentication** - NextAuth (Email + Google OAuth)
+- **Dashboard** - User metrics, data saved, devices linked
+- **Settings** - User info, plan management, device settings
+- **Billing** - Stripe + M-Pesa integration
+
+### Browser Extension (`apps/extension`)
+- **Popup UI** - Toggle Duck Mode, status indicators, cache info
+- **Background Scripts** - Connection detection, data caching, sync
+- **Content Scripts** - Page data extraction and processing
+- **Options Page** - Account connection, sync settings
+
+### Backend API (`apps/api`)
+- **Auth Module** - JWT, OAuth2, user management
+- **Cache Module** - Metadata storage and retrieval
+- **Billing Module** - Stripe + M-Pesa payment processing
+- **Analytics Module** - Usage stats, cache performance
+- **WebSocket** - Real-time sync notifications
+
+## 🔧 Tech Stack
+
+### Frontend
+- **Next.js 15** (App Router)
+- **TypeScript** (Full type safety)
+- **TailwindCSS** + **ShadCN/UI**
+- **Framer Motion** (Animations)
+- **Zustand** (State management)
+- **NextAuth** (Authentication)
+- **SWR** (Data fetching)
+
+### Backend
+- **NestJS** (TypeScript framework)
+- **PostgreSQL** (Primary database)
+- **Prisma** (ORM)
+- **Redis** (Caching & sessions)
+- **MinIO** (S3-compatible storage)
+- **JWT** (Authentication)
+
+### Extension
+- **Manifest v3** (Chrome extension)
+- **IndexedDB** (Local storage)
+- **Web APIs** (Background sync)
+- **AES Encryption** (Data security)
+
+### DevOps
+- **Docker** (Containerization)
+- **GitHub Actions** (CI/CD)
+- **Vercel** (Frontend deployment)
+- **Railway** (Backend deployment)
+- **Cloudflare** (CDN)
+
+## 📦 Available Scripts
+
+```bash
+# Development
+npm run dev              # Start all apps in development
+npm run dev --filter=web # Start only web app
+npm run dev --filter=api # Start only API
+
+# Building
+npm run build            # Build all apps
+npm run build --filter=web # Build only web app
+
+# Linting & Type Checking
+npm run lint             # Lint all packages
+npm run check-types      # Type check all packages
+
+# Docker
+docker-compose up -d     # Start all services
+docker-compose down      # Stop all services
 ```
 
-## What's inside?
+## 🔐 Security
 
-This Turborepo includes the following packages/apps:
+- **AES Encryption** for local cache
+- **HTTPS** enforced in production
+- **JWT** with refresh token flow
+- **CORS** restricted to main domain
+- **Input validation** and sanitization
 
-### Apps and Packages
+## 💰 Pricing Plans
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+| Feature | Free | Pro ($9/mo) | Premium ($29/mo) |
+|---------|------|-------------|------------------|
+| Cache Size | 500MB | 5GB | 50GB |
+| Devices | 1 | 3 | Unlimited |
+| DuckAI | ❌ | Lite | Full |
+| Support | Community | Priority | 24/7 |
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 🚀 Deployment
 
-### Utilities
+### Frontend (Vercel)
+- Automatic deployment on push to `main`
+- Preview deployments for PRs
+- Environment variables configured
 
-This Turborepo has some additional tools already setup for you:
+### Backend (Railway)
+- Automatic deployment on push to `main`
+- Database migrations on deploy
+- Health checks and monitoring
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+### Extension
+- Manual upload to Chrome Web Store
+- Automated builds via GitHub Actions
+- Version management and updates
 
-### Build
+## 🤝 Contributing
 
-To build all apps and packages, run the following command:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-```
-cd my-turborepo
+## 📄 License
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
+## 🆘 Support
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+- **Documentation**: [docs.duckconnect.com](https://docs.duckconnect.com)
+- **Issues**: [GitHub Issues](https://github.com/GEOFFREY-MO/duck/issues)
+- **Discord**: [Join our community](https://discord.gg/duckconnect)
+- **Email**: support@duckconnect.com
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+---
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+**Built with ❤️ by the DuckConnect Team**
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+*"Adapt like a duck - walks, swims, flies!"* 🦆
