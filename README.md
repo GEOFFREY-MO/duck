@@ -1,17 +1,17 @@
-# 🦆 DuckConnect MVP
+# DuckConnect MVP
 
 > Stay Online, Even When Offline
 
 DuckConnect is a cross-platform browser extension + web app that lets users stay online even when offline. "Turn on the Duck" to keep watching, working, and syncing data seamlessly across all your devices.
 
-## 🎯 Mission
+## Mission
 
 DuckConnect adapts like a duck:
 - **Walks** (offline) - Smart caching and local storage
 - **Swims** (data-light) - Efficient sync and compression  
 - **Flies** (full online) - Seamless cloud integration
 
-## 🏗️ Architecture
+## Architecture
 
 This is a Turborepo monorepo containing:
 
@@ -25,7 +25,7 @@ This is a Turborepo monorepo containing:
 - **`packages/types`** - TypeScript interfaces and types
 - **`packages/utils`** - Shared utility functions
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 18+
@@ -67,7 +67,7 @@ This is a Turborepo monorepo containing:
 - **PostgreSQL**: localhost:5432
 - **Redis**: localhost:6379
 
-## 🎨 Design System
+##  Design System
 
 ### Brand Colors
 | Role | Hex | Usage |
@@ -87,7 +87,7 @@ This is a Turborepo monorepo containing:
 - **Body**: Inter Regular  
 - **Code/Stats**: Roboto Mono
 
-## 🧩 Features
+## Features
 
 ### Web App (`apps/web`)
 - **Landing Page** - Hero, features, pricing, CTA
@@ -109,7 +109,7 @@ This is a Turborepo monorepo containing:
 - **Analytics Module** - Usage stats, cache performance
 - **WebSocket** - Real-time sync notifications
 
-## 🔧 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Next.js 15** (App Router)
@@ -141,7 +141,7 @@ This is a Turborepo monorepo containing:
 - **Railway** (Backend deployment)
 - **Cloudflare** (CDN)
 
-## 📦 Available Scripts
+## Available Scripts
 
 ```bash
 # Development
@@ -162,7 +162,7 @@ docker-compose up -d     # Start all services
 docker-compose down      # Stop all services
 ```
 
-## 🔐 Security
+## Security
 
 - **AES Encryption** for local cache
 - **HTTPS** enforced in production
@@ -170,7 +170,7 @@ docker-compose down      # Stop all services
 - **CORS** restricted to main domain
 - **Input validation** and sanitization
 
-## 💰 Pricing Plans
+## Pricing Plans
 
 | Feature | Free | Pro ($9/mo) | Premium ($29/mo) |
 |---------|------|-------------|------------------|
@@ -179,7 +179,7 @@ docker-compose down      # Stop all services
 | DuckAI | ❌ | Lite | Full |
 | Support | Community | Priority | 24/7 |
 
-## 🚀 Deployment
+## Deployment
 
 ### Frontend (Vercel)
 - Automatic deployment on push to `main`
@@ -196,7 +196,7 @@ docker-compose down      # Stop all services
 - Automated builds via GitHub Actions
 - Version management and updates
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -204,11 +204,11 @@ docker-compose down      # Stop all services
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## Support
 
 - **Documentation**: [docs.duckconnect.com](https://docs.duckconnect.com)
 - **Issues**: [GitHub Issues](https://github.com/GEOFFREY-MO/duck/issues)
@@ -217,6 +217,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ by the DuckConnect Team**
+**Built with by the DuckConnect Team**
 
-*"Adapt like a duck - walks, swims, flies!"* 🦆
+*"Adapt like a duck - walks, swims, flies!"* 
